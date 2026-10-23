@@ -1,0 +1,61 @@
+#!/usr/bin/env bash
+# Extrai o áudio de vídeos sem reencodar (cópia bit-a-bit = qualidade máxima).
+# Uso: extrair-audio [-o pasta-destino] video.mp4 [outro.mov ...]  |  extrair-audio [-o dir] pasta/
+# Sem -o, o áudio vai pra subpasta "audio/" ao lado do vídeo.
+set -euo pipefail
+
+OUTDIR=""
+while getopts ":o:" opt; do
+  case "$opt" in
+    o) OUTDIR="$OPTARG" ;;
+    *) sed -n '2,4p' "$0"; exit 1 ;;
+  esac
+done
+shift $((OPTIND - 1))
+
+ext_for() {  # codec -> container que o aceita
+  case "$1" in
+    aac)        echo m4a ;;
+    mp3)        echo mp3 ;;
+    opus)       echo opus ;;
+    vorbis)     echo ogg ;;
+    flac)       echo flac ;;
+    alac)       echo m4a ;;
+    pcm_*)      echo wav ;;
+    ac3|eac3)   echo "$1" ;;
+    *)          echo "" ;;   # desconhecido -> FLAC (lossless)
+  esac
+}
+
+extrair() {
+  local in="$1"
+  local codec dest base out
+  codec=$(ffprobe -v error -select_streams a:0 -show_entries stream=codec_name -of csv=p=0 "$in" || true)
+  [ -z "$codec" ] && { echo "sem faixa de áudio: $in"; return; }
+
+  dest="${OUTDIR:-$(dirname "$in")/audio}"
+  mkdir -p "$dest"
+  base=$(basename "${in%.*}")
+
+  local ext; ext=$(ext_for "$codec")
+  if [ -n "$ext" ]; then
+    out="$dest/$base.$ext"
+    ffmpeg -nostdin -v error -y -i "$in" -vn -map a:0 -c:a copy "$out"
+    echo "$out  ($codec, cópia sem perda)"
+  else
+    out="$dest/$base.flac"
+    ffmpeg -nostdin -v error -y -i "$in" -vn -map a:0 -c:a flac -compression_level 8 "$out"
+    echo "$out  ($codec -> flac, lossless)"
+  fi
+}
+
+[ $# -eq 0 ] && { sed -n '2,4p' "$0"; exit 1; }
+
+for arg in "$@"; do
+  if [ -d "$arg" ]; then
+    while IFS= read -r -d '' f; do extrair "$f"; done \
+      < <(find "$arg" -type f \( -iname '*.mp4' -o -iname '*.mov' -o -iname '*.mkv' -o -iname '*.webm' -o -iname '*.m4v' -o -iname '*.avi' \) -print0)
+  else
+    extrair "$arg"
+  fi
+done

@@ -1,0 +1,24 @@
+nome,url,categoria,custo,uso_pipeline,status,tags,nota
+One Page Love,https://onepagelove.com/,galeria,free,pesquisa,depois,design;landing,Galeria de landing pages. Referência pra arfux.dev
+Site of Sites,https://www.siteofsites.co/,galeria,free,pesquisa,depois,design;site,Curadoria de sites bem desenhados
+Awwwards,https://www.awwwards.com/,galeria,free,pesquisa,depois,design;site,Premiação e galeria de sites
+FWA Awards,https://thefwa.com/awards/page/1/,galeria,free,pesquisa,depois,design;site,Galeria de sites premiados
+SoHub Digital,https://sohub.digital/,galeria,free,pesquisa,depois,design;agencia,Site de referência de agência
+Wispr Flow,https://wisprflow.ai/,ferramenta,sub,pesquisa,depois,voz;ditado,Ditado por voz com IA. Avaliar pra roteiro falado
+Fal.ai,https://fal.ai/,modelo,credits,broll,depois,imagem;video;api,Plataforma de modelos generativos (imagem/vídeo) via API
+Higgsfield,https://higgsfield.ai/,cli,credits,broll,recusado,imagem;video;seedance;seedream,Substituído pelo Grok Imagine (decisão 29/09/2026). Só reavaliar pra vídeo Seedance
+Magnific,https://magnific.com/,upscaler,sub,thumbnail,depois,upscale;imagem,Upscale. Grok gera só 720p: testar antes de assinar
+Topaz Labs,https://www.topazlabs.com/,upscaler,sub,thumbnail,depois,upscale;imagem;video,Upscale de imagem e vídeo (desktop)
+Clarity AI,https://clarityai.co/,upscaler,credits,thumbnail,depois,upscale;imagem,Upscale de imagem
+Claude API keys,https://platform.claude.com/settings/workspaces/default/keys,api,free,ignorar,depois,chave;anthropic,Painel de chaves de API Claude
+OpenAI API keys,https://platform.openai.com/api-keys,api,free,ignorar,depois,chave;openai,Painel de chaves de API OpenAI
+Skill de animação (Emil Kowalski),https://emilkowal.ski/skill,skill,free,motion,depois,animacao;skill,Skill de animação/interação. Comparar com hyperframes-animation
+emilkowalski/skills,https://github.com/emilkowalski/skills,skill,free,motion,depois,animacao;github,Repositório das skills do Emil
+Orbit (deploy da turma),https://orbit-studio.humanagentlab3.chatgpt.site/,exemplo,free,ignorar,recusado,design-system;curso,Deploy de exemplo do curso
+Pinterest layouts Alter,https://br.pinterest.com/toymariana/app/,galeria,free,pesquisa,recusado,layout;app,Board de referência citado num prompt do curso
+Post IG referência LP,https://www.instagram.com/p/DdhFS7Ox5nC/,exemplo,free,pesquisa,recusado,instagram;landing,Post ligado ao prompt de site de posicionamento
+ChatGPT desktop,https://chatgpt.com/download,ferramenta,free,ignorar,recusado,chatgpt;app,App desktop do ChatGPT
+Grok Imagine (via CLI),https://docs.x.ai/build/cli/headless-scripting,cli,sub,thumbnail,agora,imagem;grok;xai,Já assinado. ferramentas/grok-imagem/gerar.sh. ~US$0.03/imagem 720p
+Apify,https://apify.com/,api,credits,pesquisa,depois,scraping;mcp,Scrapers prontos (Actors) via MCP. Sobrepõe minet e Scrapling; só se algum deles falhar (ex: TikTok)
+imgBB,https://api.imgbb.com/,api,free,ignorar,depois,hospedagem;instagram,Hospedagem pública de imagem exigida pelo publish.js do curso pra postar carrossel via Graph API
+instaloader,https://github.com/instaloader/instaloader,ferramenta,free,pesquisa,depois,instagram;scraping,Coletor de posts públicos de IG usado no collect-instagram.py do curso. Sobrepõe o minet
