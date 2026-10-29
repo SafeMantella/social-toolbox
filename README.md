@@ -52,9 +52,13 @@ pip install pandas pymupdf4llm ebooklib html2text   # só se for usar links e pd
 
 - Criado pro projeto de redes sociais do autor, no macOS. A maioria dos scripts é independente do layout, mas **alguns têm caminho absoluto** (`/Volumes/1TB Mac/...`) e `ferramentas/...` nos exemplos e docstrings. Ajuste esses caminhos antes de usar em outra máquina.
 - `keyword-mining` usa o endpoint de autocomplete **não oficial** do Google: pode mudar ou limitar sem aviso. Detalhes no README da pasta.
-- `grokbot` precisa de um webhook seu em `.env` (modelo em `grokbot/.env.example`). O `.env` está no `.gitignore`: nunca o commite. O `handoff.md` da pasta é o contexto de uma instância privada do autor e serve só como exemplo de formato.
+- `grokbot` precisa de um webhook seu em `.env` (modelo em `grokbot/.env.example`). O `.env` está no `.gitignore`: nunca o commite. Há um modelo de contexto inicial em `grokbot/handoff.example.md`; o seu `handoff.md` real fica fora do git.
 - `grok-imagem` gasta crédito do Grok a cada chamada (o script imprime o custo) e a moderação pode recusar um prompt inofensivo e cobrar mesmo assim.
 
 ## Repos relacionados
 
 Mesmo kit do [@SafeMantella](https://github.com/SafeMantella): [video-cut-pipeline](https://github.com/SafeMantella/video-cut-pipeline), [transcrever-ptbr](https://github.com/SafeMantella/transcrever-ptbr), [video-tools](https://github.com/SafeMantella/video-tools), [sau-tools](https://github.com/SafeMantella/sau-tools), [token-kit](https://github.com/SafeMantella/token-kit). O áudio extraído aqui alimenta o [Adobe Podcast](https://github.com/SafeMantella/Adobe-Podcast-for-Claude-Code).
+
+## Licença
+
+MIT. Veja [LICENSE](LICENSE).

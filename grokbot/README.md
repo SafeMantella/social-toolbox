@@ -27,6 +27,6 @@ Corpo: `{"from": "claude-redes", "subject", "message", "reply_needed"}`, header 
 
 ## Handoff
 
-`handoff.md` tem o contexto completo (papel, Notion, repos, comandos, regras, formato dos prompts). Atualizar quando pendências, links ou comandos mudarem e reenviar:
+`handoff.example.md` é um modelo do contexto inicial (papel, formato dos prompts, seu nicho e pendências). Copie para `handoff.md` (ignorado pelo git), preencha e envie:
 
-    python3 ferramentas/grokbot/send_to_redes_arfux.py -s "Handoff: gerente de conteúdo" < ferramentas/grokbot/handoff.md
+    python3 send_to_redes_arfux.py -s "Handoff" < handoff.md

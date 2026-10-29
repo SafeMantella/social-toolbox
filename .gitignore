@@ -8,3 +8,4 @@ venv/
 *.log
 *cookies*
 node_modules/
+grokbot/handoff.md
